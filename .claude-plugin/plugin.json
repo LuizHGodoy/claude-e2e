@@ -1,0 +1,21 @@
+{
+  "name": "claude-e2e",
+  "description": "E2E testing skill for Claude Code using agent-browser. Tests functionality, responsivity, behavior, accessibility with automated QA reports and screenshot/video evidence.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Luiz Godoy",
+    "email": "luizgodoy.dev@gmail.com"
+  },
+  "homepage": "https://github.com/LuizHGodoy/claude-e2e",
+  "repository": "https://github.com/LuizHGodoy/claude-e2e",
+  "license": "MIT",
+  "keywords": [
+    "e2e",
+    "testing",
+    "qa",
+    "browser",
+    "agent-browser",
+    "responsivity",
+    "accessibility"
+  ]
+}

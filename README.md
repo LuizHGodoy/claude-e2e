@@ -1,6 +1,6 @@
 # claude-e2e
 
-A Claude Code skill for E2E testing web applications using the browser integration.
+A Claude Code plugin for E2E testing web applications using [agent-browser](https://github.com/vercel-labs/agent-browser).
 
 ## What it does
 
@@ -9,25 +9,51 @@ When you run `/e2e`, Claude acts as a QA engineer: it opens your web app in a re
 ## Prerequisites
 
 - Claude Code v2.0.73+
-- Google Chrome or Microsoft Edge with the [Claude in Chrome extension](https://chromewebstore.google.com/detail/claude-in-chrome/dhjpnafoafjjldmmckdlgaijnkfmmjfp) v1.0.36+
-- Browser integration enabled (run `/chrome` in Claude Code)
+- [agent-browser](https://github.com/vercel-labs/agent-browser) installed (`npm i -g agent-browser && agent-browser install`)
 
 ## Installation
 
-Add this plugin to your project's `.claude/settings.json`:
+### Via Claude Code CLI
+
+```bash
+claude /install-plugin https://github.com/LuizHGodoy/claude-e2e.git
+```
+
+### Manual installation
+
+Add this to your `~/.claude/settings.json` (or `~/.claude-{profile}/settings.json`):
 
 ```json
 {
-  "plugins": [
-    "claude-e2e"
-  ]
+  "extraKnownMarketplaces": {
+    "claude-e2e": {
+      "source": {
+        "source": "github",
+        "repo": "LuizHGodoy/claude-e2e"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "claude-e2e@claude-e2e": true
+  }
 }
 ```
 
-Or install it via npm (once published):
+Then restart Claude Code. The plugin will be cloned and cached automatically. Updates are pulled on restart.
+
+### As a project skill (no plugin system)
+
+Copy the skill directly into your project:
 
 ```bash
-npm install -g claude-e2e
+mkdir -p .claude/skills
+cp -r skills/e2e .claude/skills/e2e
+```
+
+Or symlink for personal use across all projects:
+
+```bash
+ln -sf /path/to/claude-e2e/skills/e2e ~/.claude/skills/e2e
 ```
 
 ## Usage
@@ -59,7 +85,7 @@ QA/
 ├── screenshots/
 │   └── responsive-header-375px.png  # Evidence screenshots
 └── videos/
-    └── behavior-login-flow.gif      # Interaction recordings
+    └── behavior-login-flow.webm     # Interaction recordings
 ```
 
 The report includes a summary table, pass/fail verdict, detailed issue descriptions with reproduction steps, a responsive breakpoint matrix, and an evidence index.

@@ -1,0 +1,16 @@
+{
+  "name": "claude-e2e",
+  "description": "E2E testing plugin with browser automation, responsivity checks, and QA report generation",
+  "owner": {
+    "name": "Luiz Godoy",
+    "email": "luizgodoy.dev@gmail.com"
+  },
+  "plugins": [
+    {
+      "name": "claude-e2e",
+      "description": "E2E testing skill for Claude Code using agent-browser. Tests functionality, responsivity, behavior, accessibility with automated QA reports and screenshot/video evidence.",
+      "version": "1.0.0",
+      "source": "./"
+    }
+  ]
+}
